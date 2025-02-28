@@ -14,6 +14,8 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+namespace filter_h5p;
+
 defined('MOODLE_INTERNAL') || die;
 
 /**
@@ -24,7 +26,7 @@ defined('MOODLE_INTERNAL') || die;
  * @author     Robert Schrenk
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class filter_h5p extends moodle_text_filter {
+class text_filter extends \moodle_text_filter {
     /**
      * Function filter replaces any h5p-sources.
      */
@@ -62,7 +64,7 @@ class filter_h5p extends moodle_text_filter {
                     $moduleinstance = $manager->get_instance();
                     $context = $manager->get_context();
                     // Convert display options to a valid object.
-                    $factory = new core_h5p\factory();
+                    $factory = new \core_h5p\factory();
                     $core = $factory->get_core();
                     $config = \core_h5p\helper::decode_display_options($core, $moduleinstance->displayoptions);
 
